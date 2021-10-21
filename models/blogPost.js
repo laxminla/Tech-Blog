@@ -1,57 +1,58 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class blogPost extends Model {
-   
-    
+class BlogPost extends Model {
+
+
 }
 
-blogPost.init(
+BlogPost.init(
     {
-      id: {
-          type: DataTypes.INTEGER,
-          PrimaryKey: true,
-          allowNull: false,
-          autoIncrement: true
-      },
-      
-      title: {
-          type: DataTypes.STRING,
-          allowNull: false,
-          validate: {
-              len: [1, 40]
-          }
-      },
-      entry: {
-          type: DataTypes.STRING,
-          allowNull: false,
-          validate: {
-              len: [8]
-          } 
-      },
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true
+        },
 
-      data_published: {
-          type: DataTypes.DATE,
-          allowNull: false,
-          defaultValue: DataTypes.NOW
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 40]
+            }
+        },
+        entry: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [8]
+            }
+        },
 
+        data_published: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW
 
-      },
-      author: {
-          type: DataTypes.INTEGER,
-          references: {
-              model: 'user',
-              key: 'id'
-          }
-      }
+        },
+        author: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        }
     },
 
-  {  sequelize,
-      timestamps: false,
-      freezeTableName: true,
-      underscored: true,
-      modelName: 'blogPost',}
-     
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'blogpost',
+    }
+
 )
 
 module.exports = BlogPost;
