@@ -2,8 +2,6 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class BlogPost extends Model {
-
-
 }
 
 BlogPost.init(
@@ -30,13 +28,13 @@ BlogPost.init(
             }
         },
 
-        data_published: {
+        date_published: {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW
 
         },
-        author: {
+        user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',

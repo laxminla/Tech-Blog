@@ -5,7 +5,7 @@ const exphbs = require('express-handlebars');
 // Initializes Sequelize with session store
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-const routes = require('./controllers');
+const routes = require('./controllers/api');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helper');
 
@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 // Sets up session and connect to our Sequelize db
 const sess = {
   secret: 'Super secret secret',
-  // Express session will use cookies by default, but we can specify options for those cookies by adding a cookies property to our session options.
+ 
   cookie: {
     // maxAge sets the maximum age for the session to be active. Listed in milliseconds.
     maxAge: 3600,
